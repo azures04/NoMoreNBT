@@ -3,23 +3,23 @@ loaderVersion="[36,)"
 license="All rights reserved"
 issueTrackerURL=""
 [[mods]]
-modId="greenportals"
+modId="nomorenbt"
 version="${file.jarVersion}"
-displayName="Green Portals"
+displayName="No More NBT"
 displayURL=""
-logoFile="greenportals.png"
+logoFile="nomorenbt.png"
 credits=""
 authors="Azures"
 description='''
-Adds an interdimensional teleport command.
+An libs for have alternative to NBT Data
 '''
-[[dependencies.greenportals]]
+[[dependencies.nomorenbt]]
     modId="forge"
     mandatory=true
     versionRange="[36,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.greenportals]]
+[[dependencies.nomorenbt]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.5]"
