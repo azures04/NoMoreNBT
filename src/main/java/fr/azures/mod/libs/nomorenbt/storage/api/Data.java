@@ -75,10 +75,18 @@ public class Data {
 	}
 	
 	public HashMap<String, Object> getData() {
-		return data;	
+		return this.data;	
 	}
 	
 	public Set<String> getAllKeys() {
-		return data.keySet();
+		return this.data.keySet();
+	}
+	
+	public void delete(String key) {
+		this.data.remove(key);
+	}
+	
+	public void clear() {
+		this.data.clear();
 	}
 }
