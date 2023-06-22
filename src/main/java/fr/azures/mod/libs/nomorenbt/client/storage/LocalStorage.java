@@ -1,14 +1,15 @@
-package fr.azures.mod.libs.nomorenbt.storage;
+package fr.azures.mod.libs.nomorenbt.client.storage;
 
 import java.util.HashMap;
 
-import fr.azures.mod.libs.nomorenbt.storage.api.Data;
+import fr.azures.mod.libs.nomorenbt.client.storage.api.Data;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+@SuppressWarnings("all")
 @OnlyIn(Dist.CLIENT)
 public class LocalStorage {
 	
