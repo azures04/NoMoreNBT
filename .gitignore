@@ -38,3 +38,4 @@ run
 # Files from Forge MDK
 forge*changelog.txt
 /logs/
+src/main/java/fr/azures/mod/libs/nomorenbt/Test.java

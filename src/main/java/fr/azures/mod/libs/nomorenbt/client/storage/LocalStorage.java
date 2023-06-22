@@ -13,8 +13,16 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class LocalStorage {
 	
+	public Blocks blocks;
+	public Items items;
+
+	public LocalStorage() {
+		this.blocks = new Blocks();
+		this.items = new Items();
+	}
+	
 	@OnlyIn(Dist.CLIENT)
-	class Blocks {
+	public class Blocks {
 		private HashMap<String, HashMap<String, Object>> blocksData;
 		
 		public void storeData(String levelName, BlockPos pos, Data data) {
@@ -39,7 +47,7 @@ public class LocalStorage {
 	}
 	
 	@OnlyIn(Dist.CLIENT)
-	class Items {
+	public class Items {
 		private HashMap<Item, HashMap<String, Object>> itemsData;
 
 		public void storeData(Item item, Data data) {
