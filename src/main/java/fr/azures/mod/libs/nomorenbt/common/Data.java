@@ -6,19 +6,11 @@ import java.util.UUID;
 
 public class Data {
 
-	private boolean persistentData = false;
 	private HashMap<String, Object> data;
 
 	public Data() {
 		this.data = new HashMap<String, Object>();	
 	}	
-	public boolean isPersistentData() {
-		return persistentData;
-	}
-	
-	public void setPersistentData(boolean isPersistent) {
-		this.persistentData = isPersistent;
-	}
 	
 	public void putInt(String key, int value) {
 		this.data.put(key, value);

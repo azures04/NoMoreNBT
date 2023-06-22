@@ -8,7 +8,10 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.event.server.FMLServerStoppedEvent;
 
+@SuppressWarnings("unchecked")
 public class StorageManager {
 
     public static void saveBlocksData(HashMap<String, HashMap<String, Object>> data, String filename) {
@@ -27,7 +30,7 @@ public class StorageManager {
         }
     }
 
-    public static HashMap<Item, HashMap<String, Object>> getItemsData(String filename) {
+	public static HashMap<Item, HashMap<String, Object>> getItemsData(String filename) {
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename))) {
             Object obj = inputStream.readObject();
             if (obj instanceof HashMap) {
