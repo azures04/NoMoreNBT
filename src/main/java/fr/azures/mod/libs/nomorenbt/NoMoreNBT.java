@@ -3,8 +3,6 @@ package fr.azures.mod.libs.nomorenbt;
 import org.apache.commons.lang3.tuple.Pair;
 
 import fr.azures.mod.libs.nomorenbt.data.Constants;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -21,9 +19,5 @@ public class NoMoreNBT {
 		);
 	}
 	
-    @SubscribeEvent
-    public static void onBlockBreak(BlockEvent.BreakEvent event) {
-    	new Test();
-    }
 
 }
