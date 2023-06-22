@@ -1,9 +1,5 @@
 package fr.azures.mod.libs.nomorenbt.storage;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.nio.file.Path;
 import java.util.HashMap;
 
 import fr.azures.mod.libs.nomorenbt.storage.api.Data;
@@ -18,12 +14,26 @@ public class LocalStorage {
 	
 	@OnlyIn(Dist.CLIENT)
 	class Blocks {
-		private HashMap<BlockPos, HashMap<String, Object>> blocksData;
+		private HashMap<String, HashMap<String, Object>> blocksData;
 		
-		public void storeData(BlockPos pos, Data data) {
+		public void storeData(String levelName, BlockPos pos, Data data) {
 			if (Minecraft.getInstance().level != null) {
-				this.blocksData.put(pos, data.getData());
+				String key = levelName + "[" + pos.getX() + ";" + pos.getY() + ";" + pos.getZ() + "]";
+				this.blocksData.put(key, data.getData());
 			}
+		}
+		
+		public Data getData(String levelName, BlockPos pos) {
+			if (Minecraft.getInstance().level != null) {
+				String key = levelName + "[" + pos.getX() + ";" + pos.getY() + ";" + pos.getZ() + "]";
+				if (this.blocksData.get(key) != null) {
+					Data data = new Data();
+					data.setData(this.blocksData.get(key));
+					return data;
+				}
+				return null;
+			}
+			return null;
 		}
 	}
 	
@@ -35,6 +45,18 @@ public class LocalStorage {
 			if (Minecraft.getInstance().level != null) {
 				this.itemsData.put(item, data.getData());
 			}
+		}
+		
+		public Data getData(Item item, BlockPos pos) {
+			if (Minecraft.getInstance().level != null) {
+				if (this.itemsData.get(item) != null) {
+					Data data = new Data();
+					data.setData(this.itemsData.get(item));
+					return data;
+				}
+				return null;
+			}
+			return null;
 		}
 	}
 	

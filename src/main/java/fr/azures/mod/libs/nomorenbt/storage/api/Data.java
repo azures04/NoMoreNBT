@@ -78,6 +78,10 @@ public class Data {
 		return this.data;	
 	}
 	
+	public void setData(HashMap<String, Object> data) {
+		this.data = data;
+	}
+	
 	public Set<String> getAllKeys() {
 		return this.data.keySet();
 	}
