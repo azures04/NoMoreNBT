@@ -15,6 +15,7 @@ public class LocalStorage {
 	
 	public Blocks blocks;
 	public Items items;
+	public Minecraft mc = Minecraft.getInstance();
 
 	public LocalStorage() {
 		this.blocks = new Blocks();
@@ -34,15 +35,15 @@ public class LocalStorage {
 		}
 		
 		public void storeData(String levelName, BlockPos pos, Data data) {
-			if (Minecraft.getInstance().level != null) {
-				String key = levelName + "[" + pos.getX() + ";" + pos.getY() + ";" + pos.getZ() + "]";
+			if (mc.level != null) {
+				String key = levelName + "@" + mc.getLevelSource().getBaseDir() + "[" + pos.getX() + ";" + pos.getY() + ";" + pos.getZ() + "]";
 				this.blocksData.put(key, data.getData());
 			}
 		}
 		
 		public Data getData(String levelName, BlockPos pos) {
-			if (Minecraft.getInstance().level != null) {
-				String key = levelName + "[" + pos.getX() + ";" + pos.getY() + ";" + pos.getZ() + "]";
+			if (mc.level != null) {
+				String key = levelName + "@" + mc.getLevelSource().getBaseDir() + "[" + pos.getX() + ";" + pos.getY() + ";" + pos.getZ() + "]";
 				if (this.blocksData.get(key) != null) {
 					Data data = new Data();
 					data.setData(this.blocksData.get(key));
@@ -67,13 +68,13 @@ public class LocalStorage {
 		}
 		
 		public void storeData(Item item, Data data) {
-			if (Minecraft.getInstance().level != null) {
+			if (mc.level != null) {
 				this.itemsData.put(item, data.getData());
 			}
 		}
 		
 		public Data getData(Item item, BlockPos pos) {
-			if (Minecraft.getInstance().level != null) {
+			if (mc.level != null) {
 				if (this.itemsData.get(item) != null) {
 					Data data = new Data();
 					data.setData(this.itemsData.get(item));
