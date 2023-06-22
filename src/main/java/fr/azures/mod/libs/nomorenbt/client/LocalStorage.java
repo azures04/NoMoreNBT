@@ -1,8 +1,8 @@
-package fr.azures.mod.libs.nomorenbt.client.storage;
+package fr.azures.mod.libs.nomorenbt.client;
 
 import java.util.HashMap;
 
-import fr.azures.mod.libs.nomorenbt.client.storage.api.Data;
+import fr.azures.mod.libs.nomorenbt.common.Data;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;

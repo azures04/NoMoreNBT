@@ -1,4 +1,4 @@
-package fr.azures.mod.libs.nomorenbt.client.storage.api;
+package fr.azures.mod.libs.nomorenbt.common;
 
 import java.util.HashMap;
 import java.util.Set;
