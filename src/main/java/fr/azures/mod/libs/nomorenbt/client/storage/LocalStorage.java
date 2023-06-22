@@ -25,6 +25,10 @@ public class LocalStorage {
 	public class Blocks {
 		private HashMap<String, HashMap<String, Object>> blocksData;
 		
+		public Blocks() {
+			this.blocksData = new HashMap<String, HashMap<String,Object>>();
+		}
+		
 		public void storeData(String levelName, BlockPos pos, Data data) {
 			if (Minecraft.getInstance().level != null) {
 				String key = levelName + "[" + pos.getX() + ";" + pos.getY() + ";" + pos.getZ() + "]";
@@ -50,6 +54,10 @@ public class LocalStorage {
 	public class Items {
 		private HashMap<Item, HashMap<String, Object>> itemsData;
 
+		public Items() {
+			this.itemsData = new HashMap<Item, HashMap<String,Object>>();
+		}
+		
 		public void storeData(Item item, Data data) {
 			if (Minecraft.getInstance().level != null) {
 				this.itemsData.put(item, data.getData());

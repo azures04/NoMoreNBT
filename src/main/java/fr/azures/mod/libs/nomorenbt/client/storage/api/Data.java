@@ -8,9 +8,11 @@ public class Data {
 
 	private boolean persistentData = false;
 	private HashMap<String, Object> data;
-	
+
+	public Data() {
+		this.data = new HashMap<String, Object>();	
+	}	
 	public boolean isPersistentData() {
-		this.data = new HashMap<String, Object>();
 		return persistentData;
 	}
 	
