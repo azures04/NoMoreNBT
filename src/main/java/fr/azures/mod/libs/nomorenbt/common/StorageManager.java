@@ -56,7 +56,6 @@ public class StorageManager {
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Error loading data: " + e.getMessage());
             return null;
-
         }
     }
 	

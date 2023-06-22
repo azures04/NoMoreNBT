@@ -18,6 +18,5 @@ public class NoMoreNBT {
 			() -> Pair.of( () -> FMLNetworkConstants.IGNORESERVERONLY, ( remote, isServer ) -> true )
 		);
 	}
-	
 
 }
