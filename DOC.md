@@ -3,6 +3,7 @@
 # How to use NoMoreNBT
 **Warning: this library currently only works in singleplayer mode**.
 
+
 ## Class Architecture
 ```ascii
 root
@@ -16,11 +17,12 @@ root
 │   │   ├───Constants.java
 │   ├───NoMoreNBT.java (Main Mod File)
 ```
-### LocalStorage
-**Note: Data storage is currently available for Blocks and is experimental for Items**.
-To start with, you need to initialise your mod's main class, like this
 
-#### This example is for dynamic storage, i.e. the data will be deleted once the game is closed.
+### LocalStorage
+**Note : Le stockage de données est actuellement Disponnible pour les Blocks et est expérimental pour les Items**
+Pour commencer vous devez initialiser dans la classe principale de votre mod, comme ceci
+
+#### Cet exemple est pour un stockage dynamique, c'est à dire que les données seront effacé une fois le jeu fermé
 ```java
 import fr.azures.mod.libs.nomorenbt.client.LocalStorage;
 import fr.azures.mod.libs.nomorenbt.client.LocalStorage.Blocks;
@@ -29,6 +31,7 @@ import fr.azures.mod.libs.nomorenbt.common.Data;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.BlockPos;
 
+@Mod("mod")
 public class Mod {
 
 	public Minecraft mc = Minecraft.getInstance();
@@ -52,5 +55,9 @@ public class Mod {
 		data2.getString("key"); //Return "value"
 	}
 }
+```
 
+#### Cet exemple est pour un stockage statique, c'est à dire que les données seront stoqués une fois le jeu fermé et pourront-être charger lors de ça ré-ouverture
+```
+Coming Soon
 ```

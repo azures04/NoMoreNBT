@@ -9,7 +9,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.network.FMLNetworkConstants;
 
 @Mod(Constants.MOD_ID)
-@Mod.EventBusSubscriber(modid = Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class NoMoreNBT {
 
 	public NoMoreNBT() {
