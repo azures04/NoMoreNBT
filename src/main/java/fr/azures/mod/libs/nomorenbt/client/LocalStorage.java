@@ -79,11 +79,11 @@ public class LocalStorage {
 			}
 		}
 		
-		public Data getData(Item item, BlockPos pos) {
+		public Data getData(Item item, String identifier, BlockPos pos) {
 			if (mc.level != null) {
 				if (this.itemsData.get(item) != null) {
 					Data data = new Data();
-					data.setData(this.itemsData.get(item));
+					data.setData(this.itemsData.get(identifier + item.getItem().getRegistryName()));
 					return data;
 				}
 				return null;
