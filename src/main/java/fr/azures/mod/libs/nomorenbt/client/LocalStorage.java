@@ -34,9 +34,12 @@ public class LocalStorage {
 			this.blocksData = blocksData;
 		}
 		
-		public void storeData(String levelName, BlockPos pos, Data data) {
+		public void storeData(String levelName, BlockPos pos, Data data, boolean persistant) {
 			if (mc.level != null) {
 				String key = levelName + "@" + mc.getLevelSource().getBaseDir() + "[" + pos.getX() + ";" + pos.getY() + ";" + pos.getZ() + "]";
+				if (this.blocksData.get(key) != null && persistant == false) {
+					this.blocksData.remove(key);
+				}
 				this.blocksData.put(key, data.getData());
 			}
 		}
@@ -57,19 +60,22 @@ public class LocalStorage {
 	
 	@OnlyIn(Dist.CLIENT)
 	public class Items {
-		private HashMap<Item, HashMap<String, Object>> itemsData;
+		private HashMap<String, HashMap<String, Object>> itemsData;
 
 		public Items() {
-			this.itemsData = new HashMap<Item, HashMap<String,Object>>();
+			this.itemsData = new HashMap<String, HashMap<String,Object>>();
 		}
 		
-		public Items(HashMap<Item, HashMap<String,Object>> itemsData) {
+		public Items(HashMap<String, HashMap<String,Object>> itemsData) {
 			this.itemsData = itemsData;
 		}
 		
-		public void storeData(Item item, Data data) {
+		public void storeData(String identifier, Item item, Data data, boolean persistant) {
 			if (mc.level != null) {
-				this.itemsData.put(item, data.getData());
+				if (this.itemsData.get(identifier + item.getItem().getRegistryName()) != null && persistant == false) {
+					this.itemsData.remove(item);
+				}
+				this.itemsData.put(identifier + item.getItem().getRegistryName(), data.getData());
 			}
 		}
 		
